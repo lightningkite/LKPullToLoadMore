@@ -7,97 +7,100 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BFB8F0991AF83AA600658CCC /* LKPullToLoadMore.h in Headers */ = {isa = PBXBuildFile; fileRef = BFB8F0981AF83AA600658CCC /* LKPullToLoadMore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BFB8F09F1AF83AA600658CCC /* LKPullToLoadMore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB8F0931AF83AA600658CCC /* LKPullToLoadMore.framework */; };
-		BFB8F0A61AF83AA600658CCC /* LKPullToLoadMoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB8F0A51AF83AA600658CCC /* LKPullToLoadMoreTests.swift */; };
+		BFB8F0F11AF83BF300658CCC /* LKPullToLoadMore.h in Headers */ = {isa = PBXBuildFile; fileRef = BFB8F0F01AF83BF300658CCC /* LKPullToLoadMore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFB8F0F71AF83BF300658CCC /* LKPullToLoadMore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB8F0EB1AF83BF300658CCC /* LKPullToLoadMore.framework */; };
+		BFB8F0FE1AF83BF300658CCC /* LKPullToLoadMoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB8F0FD1AF83BF300658CCC /* LKPullToLoadMoreTests.swift */; };
+		BFB8F1081AF83BFB00658CCC /* LKPullToLoadMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB8F1071AF83BFB00658CCC /* LKPullToLoadMore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BFB8F0A01AF83AA600658CCC /* PBXContainerItemProxy */ = {
+		BFB8F0F81AF83BF300658CCC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = BFB8F08A1AF83AA600658CCC /* Project object */;
+			containerPortal = BFB8F0E21AF83BF200658CCC /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = BFB8F0921AF83AA600658CCC;
+			remoteGlobalIDString = BFB8F0EA1AF83BF300658CCC;
 			remoteInfo = LKPullToLoadMore;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BFB8F0931AF83AA600658CCC /* LKPullToLoadMore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LKPullToLoadMore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFB8F0971AF83AA600658CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BFB8F0981AF83AA600658CCC /* LKPullToLoadMore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKPullToLoadMore.h; sourceTree = "<group>"; };
-		BFB8F09E1AF83AA600658CCC /* LKPullToLoadMoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LKPullToLoadMoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BFB8F0A41AF83AA600658CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BFB8F0A51AF83AA600658CCC /* LKPullToLoadMoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKPullToLoadMoreTests.swift; sourceTree = "<group>"; };
+		BFB8F0EB1AF83BF300658CCC /* LKPullToLoadMore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LKPullToLoadMore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFB8F0EF1AF83BF300658CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFB8F0F01AF83BF300658CCC /* LKPullToLoadMore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LKPullToLoadMore.h; sourceTree = "<group>"; };
+		BFB8F0F61AF83BF300658CCC /* LKPullToLoadMoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LKPullToLoadMoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFB8F0FC1AF83BF300658CCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFB8F0FD1AF83BF300658CCC /* LKPullToLoadMoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LKPullToLoadMoreTests.swift; sourceTree = "<group>"; };
+		BFB8F1071AF83BFB00658CCC /* LKPullToLoadMore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LKPullToLoadMore.swift; path = ../../Source/LKPullToLoadMore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		BFB8F08F1AF83AA600658CCC /* Frameworks */ = {
+		BFB8F0E71AF83BF300658CCC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BFB8F09B1AF83AA600658CCC /* Frameworks */ = {
+		BFB8F0F31AF83BF300658CCC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFB8F09F1AF83AA600658CCC /* LKPullToLoadMore.framework in Frameworks */,
+				BFB8F0F71AF83BF300658CCC /* LKPullToLoadMore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BFB8F0891AF83AA600658CCC = {
+		BFB8F0E11AF83BF200658CCC = {
 			isa = PBXGroup;
 			children = (
-				BFB8F0951AF83AA600658CCC /* LKPullToLoadMore */,
-				BFB8F0A21AF83AA600658CCC /* LKPullToLoadMoreTests */,
-				BFB8F0941AF83AA600658CCC /* Products */,
+				BFB8F0ED1AF83BF300658CCC /* LKPullToLoadMore */,
+				BFB8F0FA1AF83BF300658CCC /* LKPullToLoadMoreTests */,
+				BFB8F0EC1AF83BF300658CCC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		BFB8F0941AF83AA600658CCC /* Products */ = {
+		BFB8F0EC1AF83BF300658CCC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BFB8F0931AF83AA600658CCC /* LKPullToLoadMore.framework */,
-				BFB8F09E1AF83AA600658CCC /* LKPullToLoadMoreTests.xctest */,
+				BFB8F0EB1AF83BF300658CCC /* LKPullToLoadMore.framework */,
+				BFB8F0F61AF83BF300658CCC /* LKPullToLoadMoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BFB8F0951AF83AA600658CCC /* LKPullToLoadMore */ = {
+		BFB8F0ED1AF83BF300658CCC /* LKPullToLoadMore */ = {
 			isa = PBXGroup;
 			children = (
-				BFB8F0981AF83AA600658CCC /* LKPullToLoadMore.h */,
-				BFB8F0961AF83AA600658CCC /* Supporting Files */,
+				BFB8F0F01AF83BF300658CCC /* LKPullToLoadMore.h */,
+				BFB8F1071AF83BFB00658CCC /* LKPullToLoadMore.swift */,
+				BFB8F0EE1AF83BF300658CCC /* Supporting Files */,
 			);
 			path = LKPullToLoadMore;
 			sourceTree = "<group>";
 		};
-		BFB8F0961AF83AA600658CCC /* Supporting Files */ = {
+		BFB8F0EE1AF83BF300658CCC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BFB8F0971AF83AA600658CCC /* Info.plist */,
+				BFB8F0EF1AF83BF300658CCC /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BFB8F0A21AF83AA600658CCC /* LKPullToLoadMoreTests */ = {
+		BFB8F0FA1AF83BF300658CCC /* LKPullToLoadMoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				BFB8F0A51AF83AA600658CCC /* LKPullToLoadMoreTests.swift */,
-				BFB8F0A31AF83AA600658CCC /* Supporting Files */,
+				BFB8F0FD1AF83BF300658CCC /* LKPullToLoadMoreTests.swift */,
+				BFB8F0FB1AF83BF300658CCC /* Supporting Files */,
 			);
 			path = LKPullToLoadMoreTests;
 			sourceTree = "<group>";
 		};
-		BFB8F0A31AF83AA600658CCC /* Supporting Files */ = {
+		BFB8F0FB1AF83BF300658CCC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BFB8F0A41AF83AA600658CCC /* Info.plist */,
+				BFB8F0FC1AF83BF300658CCC /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -105,25 +108,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		BFB8F0901AF83AA600658CCC /* Headers */ = {
+		BFB8F0E81AF83BF300658CCC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFB8F0991AF83AA600658CCC /* LKPullToLoadMore.h in Headers */,
+				BFB8F0F11AF83BF300658CCC /* LKPullToLoadMore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		BFB8F0921AF83AA600658CCC /* LKPullToLoadMore */ = {
+		BFB8F0EA1AF83BF300658CCC /* LKPullToLoadMore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BFB8F0A91AF83AA600658CCC /* Build configuration list for PBXNativeTarget "LKPullToLoadMore" */;
+			buildConfigurationList = BFB8F1011AF83BF300658CCC /* Build configuration list for PBXNativeTarget "LKPullToLoadMore" */;
 			buildPhases = (
-				BFB8F08E1AF83AA600658CCC /* Sources */,
-				BFB8F08F1AF83AA600658CCC /* Frameworks */,
-				BFB8F0901AF83AA600658CCC /* Headers */,
-				BFB8F0911AF83AA600658CCC /* Resources */,
+				BFB8F0E61AF83BF300658CCC /* Sources */,
+				BFB8F0E71AF83BF300658CCC /* Frameworks */,
+				BFB8F0E81AF83BF300658CCC /* Headers */,
+				BFB8F0E91AF83BF300658CCC /* Resources */,
 			);
 			buildRules = (
 			);
@@ -131,71 +134,71 @@
 			);
 			name = LKPullToLoadMore;
 			productName = LKPullToLoadMore;
-			productReference = BFB8F0931AF83AA600658CCC /* LKPullToLoadMore.framework */;
+			productReference = BFB8F0EB1AF83BF300658CCC /* LKPullToLoadMore.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		BFB8F09D1AF83AA600658CCC /* LKPullToLoadMoreTests */ = {
+		BFB8F0F51AF83BF300658CCC /* LKPullToLoadMoreTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = BFB8F0AC1AF83AA600658CCC /* Build configuration list for PBXNativeTarget "LKPullToLoadMoreTests" */;
+			buildConfigurationList = BFB8F1041AF83BF300658CCC /* Build configuration list for PBXNativeTarget "LKPullToLoadMoreTests" */;
 			buildPhases = (
-				BFB8F09A1AF83AA600658CCC /* Sources */,
-				BFB8F09B1AF83AA600658CCC /* Frameworks */,
-				BFB8F09C1AF83AA600658CCC /* Resources */,
+				BFB8F0F21AF83BF300658CCC /* Sources */,
+				BFB8F0F31AF83BF300658CCC /* Frameworks */,
+				BFB8F0F41AF83BF300658CCC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BFB8F0A11AF83AA600658CCC /* PBXTargetDependency */,
+				BFB8F0F91AF83BF300658CCC /* PBXTargetDependency */,
 			);
 			name = LKPullToLoadMoreTests;
 			productName = LKPullToLoadMoreTests;
-			productReference = BFB8F09E1AF83AA600658CCC /* LKPullToLoadMoreTests.xctest */;
+			productReference = BFB8F0F61AF83BF300658CCC /* LKPullToLoadMoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		BFB8F08A1AF83AA600658CCC /* Project object */ = {
+		BFB8F0E21AF83BF200658CCC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Lightning Kite";
 				TargetAttributes = {
-					BFB8F0921AF83AA600658CCC = {
+					BFB8F0EA1AF83BF300658CCC = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
-					BFB8F09D1AF83AA600658CCC = {
+					BFB8F0F51AF83BF300658CCC = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
 				};
 			};
-			buildConfigurationList = BFB8F08D1AF83AA600658CCC /* Build configuration list for PBXProject "LKPullToLoadMore" */;
+			buildConfigurationList = BFB8F0E51AF83BF200658CCC /* Build configuration list for PBXProject "LKPullToLoadMore" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = BFB8F0891AF83AA600658CCC;
-			productRefGroup = BFB8F0941AF83AA600658CCC /* Products */;
+			mainGroup = BFB8F0E11AF83BF200658CCC;
+			productRefGroup = BFB8F0EC1AF83BF300658CCC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				BFB8F0921AF83AA600658CCC /* LKPullToLoadMore */,
-				BFB8F09D1AF83AA600658CCC /* LKPullToLoadMoreTests */,
+				BFB8F0EA1AF83BF300658CCC /* LKPullToLoadMore */,
+				BFB8F0F51AF83BF300658CCC /* LKPullToLoadMoreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		BFB8F0911AF83AA600658CCC /* Resources */ = {
+		BFB8F0E91AF83BF300658CCC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BFB8F09C1AF83AA600658CCC /* Resources */ = {
+		BFB8F0F41AF83BF300658CCC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -205,33 +208,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		BFB8F08E1AF83AA600658CCC /* Sources */ = {
+		BFB8F0E61AF83BF300658CCC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFB8F1081AF83BFB00658CCC /* LKPullToLoadMore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BFB8F09A1AF83AA600658CCC /* Sources */ = {
+		BFB8F0F21AF83BF300658CCC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFB8F0A61AF83AA600658CCC /* LKPullToLoadMoreTests.swift in Sources */,
+				BFB8F0FE1AF83BF300658CCC /* LKPullToLoadMoreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BFB8F0A11AF83AA600658CCC /* PBXTargetDependency */ = {
+		BFB8F0F91AF83BF300658CCC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = BFB8F0921AF83AA600658CCC /* LKPullToLoadMore */;
-			targetProxy = BFB8F0A01AF83AA600658CCC /* PBXContainerItemProxy */;
+			target = BFB8F0EA1AF83BF300658CCC /* LKPullToLoadMore */;
+			targetProxy = BFB8F0F81AF83BF300658CCC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		BFB8F0A71AF83AA600658CCC /* Debug */ = {
+		BFB8F0FF1AF83BF300658CCC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -279,7 +283,7 @@
 			};
 			name = Debug;
 		};
-		BFB8F0A81AF83AA600658CCC /* Release */ = {
+		BFB8F1001AF83BF300658CCC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -320,9 +324,10 @@
 			};
 			name = Release;
 		};
-		BFB8F0AA1AF83AA600658CCC /* Debug */ = {
+		BFB8F1021AF83BF300658CCC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -332,12 +337,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		BFB8F0AB1AF83AA600658CCC /* Release */ = {
+		BFB8F1031AF83BF300658CCC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -350,7 +357,7 @@
 			};
 			name = Release;
 		};
-		BFB8F0AD1AF83AA600658CCC /* Debug */ = {
+		BFB8F1051AF83BF300658CCC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -367,7 +374,7 @@
 			};
 			name = Debug;
 		};
-		BFB8F0AE1AF83AA600658CCC /* Release */ = {
+		BFB8F1061AF83BF300658CCC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
@@ -383,32 +390,32 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BFB8F08D1AF83AA600658CCC /* Build configuration list for PBXProject "LKPullToLoadMore" */ = {
+		BFB8F0E51AF83BF200658CCC /* Build configuration list for PBXProject "LKPullToLoadMore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BFB8F0A71AF83AA600658CCC /* Debug */,
-				BFB8F0A81AF83AA600658CCC /* Release */,
+				BFB8F0FF1AF83BF300658CCC /* Debug */,
+				BFB8F1001AF83BF300658CCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BFB8F0A91AF83AA600658CCC /* Build configuration list for PBXNativeTarget "LKPullToLoadMore" */ = {
+		BFB8F1011AF83BF300658CCC /* Build configuration list for PBXNativeTarget "LKPullToLoadMore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BFB8F0AA1AF83AA600658CCC /* Debug */,
-				BFB8F0AB1AF83AA600658CCC /* Release */,
+				BFB8F1021AF83BF300658CCC /* Debug */,
+				BFB8F1031AF83BF300658CCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		BFB8F0AC1AF83AA600658CCC /* Build configuration list for PBXNativeTarget "LKPullToLoadMoreTests" */ = {
+		BFB8F1041AF83BF300658CCC /* Build configuration list for PBXNativeTarget "LKPullToLoadMoreTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				BFB8F0AD1AF83AA600658CCC /* Debug */,
-				BFB8F0AE1AF83AA600658CCC /* Release */,
+				BFB8F1051AF83BF300658CCC /* Debug */,
+				BFB8F1061AF83BF300658CCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = BFB8F08A1AF83AA600658CCC /* Project object */;
+	rootObject = BFB8F0E21AF83BF200658CCC /* Project object */;
 }
