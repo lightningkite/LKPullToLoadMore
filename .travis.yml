@@ -1,4 +1,4 @@
-language: swift
+language: objective-c
 xcode_workspace: Example/Example.xcworkspace
 xcode_scheme: Example
 podfile: Example/Podfile
