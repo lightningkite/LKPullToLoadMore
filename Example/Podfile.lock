@@ -1,5 +1,5 @@
 PODS:
-  - LKPullToLoadMore (0.1.2)
+  - LKPullToLoadMore (1.0.0)
 
 DEPENDENCIES:
   - LKPullToLoadMore (from `../`)
@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  LKPullToLoadMore: fdf61477cfe54899685b2bd880ee993400c85fdd
+  LKPullToLoadMore: 83df112b34c6e76cf7ba2288d1b00495be06bdd5
 
-COCOAPODS: 0.37.0
+COCOAPODS: 0.37.0.beta.1

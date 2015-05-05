@@ -1,6 +1,6 @@
 {
   "name": "LKPullToLoadMore",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "summary": "Load More control for UITableView",
   "description": "Provides a 'Load More' control at the bottom of a UITableView similar to a UIRefreshControl",
   "homepage": "https://github.com/LightningKite/LKPullToLoadMore",
@@ -10,7 +10,7 @@
   },
   "source": {
     "git": "https://github.com/LightningKite/LKPullToLoadMore.git",
-    "tag": "0.1.2"
+    "tag": "1.0.0"
   },
   "platforms": {
     "ios": "8.0"
