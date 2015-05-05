@@ -9,6 +9,9 @@
 import UIKit
 
 public protocol LKPullToLoadMoreDelegate {
+    /**
+    Called when the control has triggered the load more action
+    */
     func loadMore()
 }
 
@@ -32,8 +35,19 @@ public class LKPullToLoadMore {
 
     var tableView: UITableView!
 
+    /**
+    Delegate method
+    */
     public var delegate: LKPullToLoadMoreDelegate?
 
+    
+    /**
+    Initialize the control
+    
+    :param: imageHeight  Height of the image that will be passed in
+    :param: viewWidth  Width of the view the table is shown in
+    :param: tableView  tableView for the control
+    */
     public init(imageHeight: CGFloat, viewWidth: CGFloat, tableView: UITableView) {
         height = imageHeight
         width = viewWidth
@@ -58,10 +72,17 @@ public class LKPullToLoadMore {
 
 
     //MARK: - Accessors
+    /**
+    Set the image to use for the animation and progress wedge
+    */
     public func setIndicatorImage(image: UIImage) {
         self.image = image
     }
 
+    
+    /**
+    Set the text for when the control is being pulled down
+    */
     public func setPullUpText(text: String) {
         pullUpText = text
 
@@ -70,6 +91,10 @@ public class LKPullToLoadMore {
         }
     }
 
+    
+    /**
+    Set the text for when the control is pulled out all the way, and ready to be released
+    */
     public func setPullDownText(text: String) {
         pullDownText = text
 
@@ -78,25 +103,46 @@ public class LKPullToLoadMore {
         }
     }
 
+    
+    /**
+    Set the font for the text
+    By default, uses System size 14
+    */
     public func setFont(font: UIFont) {
         loadMoreText.font = font
     }
 
+    
+    /**
+    Set the text color for the control
+    */
     public func setTextColor(color: UIColor) {
         loadMoreText.textColor = color
     }
 
+    
+    /**
+    Set whether the control should be animating or not
+    */
     public func loading(loading: Bool) {
         loadingMore = loading
         animateLoadingIndicator()
     }
 
+    
+    /**
+    Enable or disable the load more control
+    disabeling will hide it in the table view
+    */
     public func enable(enable: Bool) {
         enabled = enable
     }
 
 
     //MARK: - Scrolling
+    /**
+    Forward the delegate method from the table view
+    */
     public func scrollViewDidScroll(scrollView: UIScrollView) {
         if !loadingMore && enabled {
             var angle = ((scrollView.contentOffset.y + tableView.frame.height) - scrollView.contentSize.height - 15) / (height + 10) * 360
@@ -123,6 +169,9 @@ public class LKPullToLoadMore {
         }
     }
 
+    /**
+    Forward the delegate method from the table view
+    */
     public func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         if !loadingMore && enabled && ((scrollView.contentOffset.y + tableView.frame.height) - scrollView.contentSize.height - 15) > (height + 10) {
             delegate?.loadMore()
@@ -151,6 +200,10 @@ public class LKPullToLoadMore {
 
 
     //MARK: - Drawing Methods
+    /**
+    Resets the vertical position
+    Call this method after any change in table view height
+    */
     public func resetPosition() {
         if tableView.contentSize.height > tableView.frame.height && enabled {
             loadMoreView.hidden = false
