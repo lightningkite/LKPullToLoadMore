@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "LKPullToLoadMore"
-  s.version          = "0.1.2"
+  s.version          = "1.0.0"
   s.summary          = "Load More control for UITableView"
   s.description      = "Provides a 'Load More' control at the bottom of a UITableView similar to a UIRefreshControl"
   s.homepage         = "https://github.com/LightningKite/LKPullToLoadMore"
