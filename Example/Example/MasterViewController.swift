@@ -39,7 +39,7 @@ class MasterViewController: UITableViewController, LKPullToLoadMoreDelegate {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel!.text = "\(indexPath.row + 1)"
+        cell.textLabel.text = "\(indexPath.row + 1)"
         return cell
     }
 
