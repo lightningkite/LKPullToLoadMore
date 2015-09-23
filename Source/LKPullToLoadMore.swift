@@ -30,6 +30,8 @@ public class LKPullToLoadMore {
 
     var topPadding: CGFloat = 10.0
 
+    var backgroundColor = UIColor.whiteColor()
+    
     var pullUpText = "Pull up to load more results"
     var pullDownText = "Release to load more results"
 
@@ -44,9 +46,9 @@ public class LKPullToLoadMore {
     /**
     Initialize the control
     
-    :param: imageHeight  Height of the image that will be passed in
-    :param: viewWidth  Width of the view the table is shown in
-    :param: tableView  tableView for the control
+    - parameter imageHeight:  Height of the image that will be passed in
+    - parameter viewWidth:  Width of the view the table is shown in
+    - parameter tableView:  tableView for the control
     */
     public init(imageHeight: CGFloat, viewWidth: CGFloat, tableView: UITableView) {
         height = imageHeight
@@ -237,9 +239,8 @@ public class LKPullToLoadMore {
     /**
     Reload indicator image
     */
-    func drawReloadIndicator(#wedgeAngle: CGFloat) -> UIImage {
+    func drawReloadIndicator(wedgeAngle wedgeAngle: CGFloat) -> UIImage {
         let size = CGSize(width: height, height: height)
-        let bounds = CGRect(origin: CGPoint.zeroPoint, size: size)
 
         let opaque = false
         let scale: CGFloat = 0
@@ -257,13 +258,13 @@ public class LKPullToLoadMore {
 
 
         //// Oval Drawing
-        var ovalRect = CGRectMake(0, 0, height, height)
-        var ovalPath = UIBezierPath()
+        let ovalRect = CGRectMake(0, 0, height, height)
+        let ovalPath = UIBezierPath()
         ovalPath.addArcWithCenter(CGPointMake(ovalRect.midX, ovalRect.midY), radius: ovalRect.width / 2, startAngle: 0 * CGFloat(M_PI)/180, endAngle: -wedgeAngle * CGFloat(M_PI)/180, clockwise: true)
         ovalPath.addLineToPoint(CGPointMake(ovalRect.midX, ovalRect.midY))
         ovalPath.closePath()
 
-        UIColor.whiteColor().setFill()
+        backgroundColor.setFill()
         ovalPath.fill()
 
         // Drawing complete, retrieve the finished image and cleanup
