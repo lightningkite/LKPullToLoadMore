@@ -175,7 +175,8 @@ public class LKPullToLoadMore {
     Forward the delegate method from the table view
     */
     public func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if !loadingMore && enabled && ((scrollView.contentOffset.y + tableView.frame.height) - scrollView.contentSize.height - 15) > (height + 10) {
+		let offset = (scrollView.contentOffset.y + tableView.frame.height) - scrollView.contentSize.height - 15
+		if !loadingMore && enabled && (offset > height + 10) {
             delegate?.loadMore()
 
             scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: scrollView.contentSize.height + height + topPadding * 2)
