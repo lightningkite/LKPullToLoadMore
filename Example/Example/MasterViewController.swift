@@ -20,7 +20,7 @@ class MasterViewController: UITableViewController, LKPullToLoadMoreDelegate {
     override func viewDidLoad() {
         tableView.reloadData()
         
-        loadMoreControl = LKPullToLoadMore(imageHeight: 40, tableView: tableView)
+        loadMoreControl = LKPullToLoadMore(imageHeight: 40, viewWidth: tableView.frame.width, tableView: tableView)
         loadMoreControl.setIndicatorImage(UIImage(named: "LoadingImage")!)
         loadMoreControl.enable(true)
         loadMoreControl.delegate = self
