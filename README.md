@@ -1,6 +1,6 @@
 # LKPullToLoadMore
 
-[![CI Status](http://img.shields.io/travis/lightningkite/LKPullToLoadMore.svg?style=flat)](https://travis-ci.org/lightningkite/LKPullToLoadMore)
+[![Circle CI](https://circleci.com/gh/lightningkite/LKPullToLoadMore.svg?style=svg)](https://circleci.com/gh/lightningkite/LKPullToLoadMore)
 [![Version](https://img.shields.io/cocoapods/v/LKPullToLoadMore.svg?style=flat)](http://cocoapods.org/pods/LKPullToLoadMore)
 [![License](https://img.shields.io/cocoapods/l/LKPullToLoadMore.svg?style=flat)](http://cocoapods.org/pods/LKPullToLoadMore)
 [![Platform](https://img.shields.io/cocoapods/p/LKPullToLoadMore.svg?style=flat)](http://cocoapods.org/pods/LKPullToLoadMore)

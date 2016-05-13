@@ -161,6 +161,7 @@
 		BFB8F0E21AF83BF200658CCC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "Lightning Kite";
 				TargetAttributes = {
@@ -406,6 +407,7 @@
 				BFB8F1031AF83BF300658CCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BFB8F1041AF83BF300658CCC /* Build configuration list for PBXNativeTarget "LKPullToLoadMoreTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +416,7 @@
 				BFB8F1061AF83BF300658CCC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

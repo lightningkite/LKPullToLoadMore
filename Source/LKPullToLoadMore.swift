@@ -26,7 +26,6 @@ public class LKPullToLoadMore {
     var enabled = false
 
     var height: CGFloat = 40.0
-    var width: CGFloat = 320.0
 
     var topPadding: CGFloat = 10.0
 
@@ -47,17 +46,12 @@ public class LKPullToLoadMore {
     Initialize the control
     
     - parameter imageHeight:  Height of the image that will be passed in
-    - parameter viewWidth:  Width of the view the table is shown in
+    - parameter viewWidth:  Width of the view the table is shown in (no longer needed, and thus ignored)
     - parameter tableView:  tableView for the control
     */
     public init(imageHeight: CGFloat, viewWidth: CGFloat, tableView: UITableView) {
         height = imageHeight
-        width = viewWidth
-
-        loadMoreView.frame = CGRect(x: 0, y: 0, width: width, height: height + topPadding * 2)
-        loadMoreIndicator.frame = CGRect(x: width / 2 - 100, y: topPadding, width: height, height: height)
-        loadMoreText.frame = CGRect(x: width / 2 - 50, y: topPadding, width: 200, height: height)
-
+		
         loadMoreText.text = pullUpText
         loadMoreText.font = UIFont.systemFontOfSize(14)
         loadMoreText.textColor = UIColor.blackColor()
@@ -68,10 +62,11 @@ public class LKPullToLoadMore {
         loadMoreView.hidden = true
 
         self.tableView = tableView
+		
+		setFrames()
 
         tableView.addSubview(loadMoreView)
     }
-
 
     //MARK: - Accessors
     /**
@@ -203,15 +198,25 @@ public class LKPullToLoadMore {
 
 
     //MARK: - Drawing Methods
-    /**
+	/**
+	Set the frames of the loadMoreView, loadMoreIndicator, and loadMoreText to the current positions
+	*/
+	func setFrames() {
+		let width = tableView.frame.width
+		loadMoreView.frame = CGRect(x: 0, y: tableView.contentSize.height, width: width, height: height + topPadding * 2)
+		loadMoreIndicator.frame = CGRect(x: width / 2 - 100, y: topPadding, width: height, height: height)
+		loadMoreText.frame = CGRect(x: width / 2 - 50, y: topPadding, width: 200, height: height)
+	}
+	
+	/**
     Resets the vertical position
     Call this method after any change in table view height
     */
     public func resetPosition() {
         if tableView.contentSize.height > tableView.frame.height && enabled {
             loadMoreView.hidden = false
-            loadMoreView.frame = CGRect(x: 0, y: tableView.contentSize.height, width: self.width, height: self.height + self.topPadding * 2)
-        }
+			setFrames()
+		}
         else {
             loadMoreView.hidden = true
         }
