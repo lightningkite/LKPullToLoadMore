@@ -15,7 +15,7 @@ public protocol LKPullToLoadMoreDelegate {
     func loadMore()
 }
 
-public class LKPullToLoadMore {
+public class LKPullToLoadMore: NSObject {
     lazy var loadMoreView = UIView()
     lazy var loadMoreIndicator = UIImageView()
     lazy var loadMoreText = UILabel()
@@ -31,8 +31,20 @@ public class LKPullToLoadMore {
 
     var backgroundColor = UIColor.whiteColor()
     
-    var pullUpText = "Pull up to load more results"
-    var pullDownText = "Release to load more results"
+    var pullUpText = "Pull up to load more results" {
+        didSet {
+            if !pulledUp {
+                loadMoreText.text = pullUpText
+            }
+        }
+    }
+    var pullDownText = "Release to load more results" {
+        didSet {
+            if pulledUp {
+                loadMoreText.text = pullDownText
+            }
+        }
+    }
 
     var scrollView: UIScrollView!
 
@@ -40,6 +52,8 @@ public class LKPullToLoadMore {
     Delegate method
     */
     public var delegate: LKPullToLoadMoreDelegate?
+    
+    private static var context = 0
 
     
     /**
@@ -50,6 +64,7 @@ public class LKPullToLoadMore {
     - parameter scrollView:  scrollView for the control
     */
     public init(imageHeight: CGFloat, viewWidth: CGFloat, scrollView: UIScrollView) {
+        super.init()
         height = imageHeight
 		
         loadMoreText.text = pullUpText
@@ -66,6 +81,7 @@ public class LKPullToLoadMore {
 		setFrames()
 
         scrollView.addSubview(loadMoreView)
+        scrollView.addObserver(self, forKeyPath: "contentSize", options: .New, context: &LKPullToLoadMore.context)
     }
 
     //MARK: - Accessors
@@ -75,31 +91,6 @@ public class LKPullToLoadMore {
     public func setIndicatorImage(image: UIImage) {
         self.image = image
     }
-
-    
-    /**
-    Set the text for when the control is being pulled down
-    */
-    public func setPullUpText(text: String) {
-        pullUpText = text
-
-        if !pulledUp {
-            loadMoreText.text = pullUpText
-        }
-    }
-
-    
-    /**
-    Set the text for when the control is pulled out all the way, and ready to be released
-    */
-    public func setPullDownText(text: String) {
-        pullDownText = text
-
-        if pulledUp {
-            loadMoreText.text = pullDownText
-        }
-    }
-
     
     /**
     Set the font for the text
@@ -212,7 +203,7 @@ public class LKPullToLoadMore {
     Resets the vertical position
     Call this method after any change in scroll view height
     */
-    public func resetPosition() {
+    func resetPosition() {
         if scrollView.contentSize.height > scrollView.frame.height && enabled {
             loadMoreView.hidden = false
 			setFrames()
@@ -220,6 +211,10 @@ public class LKPullToLoadMore {
         else {
             loadMoreView.hidden = true
         }
+    }
+    
+    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        resetPosition()
     }
 
     func animateLoadingIndicator() {

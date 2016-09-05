@@ -24,7 +24,6 @@ class MasterViewController: UITableViewController, LKPullToLoadMoreDelegate {
         loadMoreControl.setIndicatorImage(UIImage(named: "LoadingImage")!)
         loadMoreControl.enable(true)
         loadMoreControl.delegate = self
-        loadMoreControl.resetPosition()
     }
 
 
@@ -53,7 +52,6 @@ class MasterViewController: UITableViewController, LKPullToLoadMoreDelegate {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(3 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
             self.tableView.reloadData()
             self.loadMoreControl.loading(false)
-            self.loadMoreControl.resetPosition()
         }
     }
 
