@@ -15,7 +15,7 @@ public protocol LKPullToLoadMoreDelegate {
     func loadMore()
 }
 
-public class LKPullToLoadMore {
+public class LKPullToLoadMore: NSObject {
     lazy var loadMoreView = UIView()
     lazy var loadMoreIndicator = UIImageView()
     lazy var loadMoreText = UILabel()
@@ -31,25 +31,40 @@ public class LKPullToLoadMore {
 
     var backgroundColor = UIColor.whiteColor()
     
-    var pullUpText = "Pull up to load more results"
-    var pullDownText = "Release to load more results"
+    var pullUpText = "Pull up to load more results" {
+        didSet {
+            if !pulledUp {
+                loadMoreText.text = pullUpText
+            }
+        }
+    }
+    var pullDownText = "Release to load more results" {
+        didSet {
+            if pulledUp {
+                loadMoreText.text = pullDownText
+            }
+        }
+    }
 
-    var tableView: UITableView!
+    var scrollView: UIScrollView!
 
     /**
     Delegate method
     */
     public var delegate: LKPullToLoadMoreDelegate?
+    
+    private static var context = 0
 
     
     /**
     Initialize the control
     
     - parameter imageHeight:  Height of the image that will be passed in
-    - parameter viewWidth:  Width of the view the table is shown in (no longer needed, and thus ignored)
-    - parameter tableView:  tableView for the control
+    - parameter viewWidth:  Width of the view the scroll view is shown in (no longer needed, and thus ignored)
+    - parameter scrollView:  scrollView for the control
     */
-    public init(imageHeight: CGFloat, viewWidth: CGFloat, tableView: UITableView) {
+    public init(imageHeight: CGFloat, viewWidth: CGFloat, scrollView: UIScrollView) {
+        super.init()
         height = imageHeight
 		
         loadMoreText.text = pullUpText
@@ -61,11 +76,12 @@ public class LKPullToLoadMore {
 
         loadMoreView.hidden = true
 
-        self.tableView = tableView
+        self.scrollView = scrollView
 		
 		setFrames()
 
-        tableView.addSubview(loadMoreView)
+        scrollView.addSubview(loadMoreView)
+        scrollView.addObserver(self, forKeyPath: "contentSize", options: .New, context: &LKPullToLoadMore.context)
     }
 
     //MARK: - Accessors
@@ -75,31 +91,6 @@ public class LKPullToLoadMore {
     public func setIndicatorImage(image: UIImage) {
         self.image = image
     }
-
-    
-    /**
-    Set the text for when the control is being pulled down
-    */
-    public func setPullUpText(text: String) {
-        pullUpText = text
-
-        if !pulledUp {
-            loadMoreText.text = pullUpText
-        }
-    }
-
-    
-    /**
-    Set the text for when the control is pulled out all the way, and ready to be released
-    */
-    public func setPullDownText(text: String) {
-        pullDownText = text
-
-        if pulledUp {
-            loadMoreText.text = pullDownText
-        }
-    }
-
     
     /**
     Set the font for the text
@@ -129,7 +120,7 @@ public class LKPullToLoadMore {
     
     /**
     Enable or disable the load more control
-    disabeling will hide it in the table view
+    disabeling will hide it in the scroll view
     */
     public func enable(enable: Bool) {
         enabled = enable
@@ -138,11 +129,11 @@ public class LKPullToLoadMore {
 
     //MARK: - Scrolling
     /**
-    Forward the delegate method from the table view
+    Forward the delegate method from the scroll view
     */
     public func scrollViewDidScroll(scrollView: UIScrollView) {
         if !loadingMore && enabled {
-            var angle = ((scrollView.contentOffset.y + tableView.frame.height) - scrollView.contentSize.height - 15) / (height + 10) * 360
+            var angle = ((scrollView.contentOffset.y + scrollView.frame.height) - scrollView.contentSize.height - 15) / (height + 10) * 360
 
             if angle > 360 {
                 angle = 360
@@ -160,24 +151,24 @@ public class LKPullToLoadMore {
 
             loadMoreIndicator.image = drawReloadIndicator(wedgeAngle: angle)
 
-            if tableView.contentInset.bottom != 0 {
-                tableView.contentInset = UIEdgeInsetsMake(tableView.contentInset.top, tableView.contentInset.left, 0, tableView.contentInset.right)
+            if scrollView.contentInset.bottom != 0 {
+                scrollView.contentInset = UIEdgeInsetsMake(scrollView.contentInset.top, scrollView.contentInset.left, 0, scrollView.contentInset.right)
             }
         }
     }
 
     /**
-    Forward the delegate method from the table view
+    Forward the delegate method from the scroll view
     */
     public func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-		let offset = (scrollView.contentOffset.y + tableView.frame.height) - scrollView.contentSize.height - 15
+		let offset = (scrollView.contentOffset.y + scrollView.frame.height) - scrollView.contentSize.height - 15
 		if !loadingMore && enabled && (offset > height + 10) {
             delegate?.loadMore()
 
             scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: scrollView.contentSize.height + height + topPadding * 2)
 
             let offset = (height + topPadding * 2) + 5
-            let newOffset = CGPoint(x: 0, y: scrollView.contentSize.height - tableView.frame.height + offset)
+            let newOffset = CGPoint(x: 0, y: scrollView.contentSize.height - scrollView.frame.height + offset)
             targetContentOffset.initialize(newOffset)
         }
     }
@@ -202,24 +193,28 @@ public class LKPullToLoadMore {
 	Set the frames of the loadMoreView, loadMoreIndicator, and loadMoreText to the current positions
 	*/
 	func setFrames() {
-		let width = tableView.frame.width
-		loadMoreView.frame = CGRect(x: 0, y: tableView.contentSize.height, width: width, height: height + topPadding * 2)
+		let width = scrollView.frame.width
+		loadMoreView.frame = CGRect(x: 0, y: scrollView.contentSize.height, width: width, height: height + topPadding * 2)
 		loadMoreIndicator.frame = CGRect(x: width / 2 - 100, y: topPadding, width: height, height: height)
 		loadMoreText.frame = CGRect(x: width / 2 - 50, y: topPadding, width: 200, height: height)
 	}
 	
 	/**
     Resets the vertical position
-    Call this method after any change in table view height
+    Call this method after any change in scroll view height
     */
-    public func resetPosition() {
-        if tableView.contentSize.height > tableView.frame.height && enabled {
+    func resetPosition() {
+        if scrollView.contentSize.height > scrollView.frame.height && enabled {
             loadMoreView.hidden = false
 			setFrames()
 		}
         else {
             loadMoreView.hidden = true
         }
+    }
+    
+    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        resetPosition()
     }
 
     func animateLoadingIndicator() {
