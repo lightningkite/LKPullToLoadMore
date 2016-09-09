@@ -15,7 +15,7 @@ public protocol LKPullToLoadMoreDelegate {
     func loadMore()
 }
 
-public class LKPullToLoadMore {
+open class LKPullToLoadMore {
     lazy var loadMoreView = UIView()
     lazy var loadMoreIndicator = UIImageView()
     lazy var loadMoreText = UILabel()
@@ -29,7 +29,7 @@ public class LKPullToLoadMore {
 
     var topPadding: CGFloat = 10.0
 
-    var backgroundColor = UIColor.whiteColor()
+    var backgroundColor = UIColor.white
     
     var pullUpText = "Pull up to load more results"
     var pullDownText = "Release to load more results"
@@ -39,7 +39,7 @@ public class LKPullToLoadMore {
     /**
     Delegate method
     */
-    public var delegate: LKPullToLoadMoreDelegate?
+    open var delegate: LKPullToLoadMoreDelegate?
 
     
     /**
@@ -53,13 +53,13 @@ public class LKPullToLoadMore {
         height = imageHeight
 		
         loadMoreText.text = pullUpText
-        loadMoreText.font = UIFont.systemFontOfSize(14)
-        loadMoreText.textColor = UIColor.blackColor()
+        loadMoreText.font = UIFont.systemFont(ofSize: 14)
+        loadMoreText.textColor = UIColor.black
 
         loadMoreView.addSubview(loadMoreIndicator)
         loadMoreView.addSubview(loadMoreText)
 
-        loadMoreView.hidden = true
+        loadMoreView.isHidden = true
 
         self.tableView = tableView
 		
@@ -72,7 +72,7 @@ public class LKPullToLoadMore {
     /**
     Set the image to use for the animation and progress wedge
     */
-    public func setIndicatorImage(image: UIImage) {
+    open func setIndicatorImage(_ image: UIImage) {
         self.image = image
     }
 
@@ -80,7 +80,7 @@ public class LKPullToLoadMore {
     /**
     Set the text for when the control is being pulled down
     */
-    public func setPullUpText(text: String) {
+    open func setPullUpText(_ text: String) {
         pullUpText = text
 
         if !pulledUp {
@@ -92,7 +92,7 @@ public class LKPullToLoadMore {
     /**
     Set the text for when the control is pulled out all the way, and ready to be released
     */
-    public func setPullDownText(text: String) {
+    open func setPullDownText(_ text: String) {
         pullDownText = text
 
         if pulledUp {
@@ -105,7 +105,7 @@ public class LKPullToLoadMore {
     Set the font for the text
     By default, uses System size 14
     */
-    public func setFont(font: UIFont) {
+    open func setFont(_ font: UIFont) {
         loadMoreText.font = font
     }
 
@@ -113,7 +113,7 @@ public class LKPullToLoadMore {
     /**
     Set the text color for the control
     */
-    public func setTextColor(color: UIColor) {
+    open func setTextColor(_ color: UIColor) {
         loadMoreText.textColor = color
     }
 
@@ -121,7 +121,7 @@ public class LKPullToLoadMore {
     /**
     Set whether the control should be animating or not
     */
-    public func loading(loading: Bool) {
+    open func loading(_ loading: Bool) {
         loadingMore = loading
         animateLoadingIndicator()
     }
@@ -131,7 +131,7 @@ public class LKPullToLoadMore {
     Enable or disable the load more control
     disabeling will hide it in the table view
     */
-    public func enable(enable: Bool) {
+    open func enable(_ enable: Bool) {
         enabled = enable
     }
 
@@ -140,7 +140,7 @@ public class LKPullToLoadMore {
     /**
     Forward the delegate method from the table view
     */
-    public func scrollViewDidScroll(scrollView: UIScrollView) {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if !loadingMore && enabled {
             var angle = ((scrollView.contentOffset.y + tableView.frame.height) - scrollView.contentSize.height - 15) / (height + 10) * 360
 
@@ -169,7 +169,7 @@ public class LKPullToLoadMore {
     /**
     Forward the delegate method from the table view
     */
-    public func scrollViewWillEndDragging(scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    open func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 		let offset = (scrollView.contentOffset.y + tableView.frame.height) - scrollView.contentSize.height - 15
 		if !loadingMore && enabled && (offset > height + 10) {
             delegate?.loadMore()
@@ -178,7 +178,7 @@ public class LKPullToLoadMore {
 
             let offset = (height + topPadding * 2) + 5
             let newOffset = CGPoint(x: 0, y: scrollView.contentSize.height - tableView.frame.height + offset)
-            targetContentOffset.initialize(newOffset)
+            targetContentOffset.initialize(to: newOffset)
         }
     }
 
@@ -212,24 +212,24 @@ public class LKPullToLoadMore {
     Resets the vertical position
     Call this method after any change in table view height
     */
-    public func resetPosition() {
+    open func resetPosition() {
         if tableView.contentSize.height > tableView.frame.height && enabled {
-            loadMoreView.hidden = false
+            loadMoreView.isHidden = false
 			setFrames()
 		}
         else {
-            loadMoreView.hidden = true
+            loadMoreView.isHidden = true
         }
     }
 
     func animateLoadingIndicator() {
         if loadingMore {
-            UIView.animateWithDuration(
-                0.4,
+            UIView.animate(
+                withDuration: 0.4,
                 delay: 0.0,
-                options: UIViewAnimationOptions.CurveLinear,
+                options: UIViewAnimationOptions.curveLinear,
                 animations: {
-                    self.loadMoreIndicator.transform = CGAffineTransformRotate(self.loadMoreIndicator.transform, CGFloat(-M_PI_2))
+                    self.loadMoreIndicator.transform = self.loadMoreIndicator.transform.rotated(by: CGFloat(-M_PI_2))
                 },
                 completion: { finished in
                     self.animateLoadingIndicator()
@@ -237,7 +237,7 @@ public class LKPullToLoadMore {
             )
         }
         else {
-            self.loadMoreIndicator.transform = CGAffineTransformIdentity
+            self.loadMoreIndicator.transform = CGAffineTransform.identity
         }
     }
 
@@ -245,7 +245,7 @@ public class LKPullToLoadMore {
     /**
     Reload indicator image
     */
-    func drawReloadIndicator(wedgeAngle wedgeAngle: CGFloat) -> UIImage {
+    func drawReloadIndicator(wedgeAngle: CGFloat) -> UIImage {
         let size = CGSize(width: height, height: height)
 
         let opaque = false
@@ -255,20 +255,22 @@ public class LKPullToLoadMore {
         let context = UIGraphicsGetCurrentContext()
 
         //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(roundedRect: CGRectMake(0, 0, height, height), cornerRadius: height / 2)
-        CGContextSaveGState(context)
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: height, height: height), cornerRadius: height / 2)
+        context?.saveGState()
         rectanglePath.addClip()
-        CGContextScaleCTM(context, 1, -1)
-        CGContextDrawTiledImage(context, CGRectMake(0, 0, height, height), image.CGImage)
-        CGContextRestoreGState(context)
-
+        context?.scaleBy(x: 1, y: -1)
+        if let cgImage = image.cgImage {
+            context?.draw(cgImage, in: CGRect(x: 0, y: 0, width: height, height: height), byTiling: true)
+        }
+        context?.restoreGState()
+        
 
         //// Oval Drawing
-        let ovalRect = CGRectMake(0, 0, height, height)
+        let ovalRect = CGRect(x: 0, y: 0, width: height, height: height)
         let ovalPath = UIBezierPath()
-        ovalPath.addArcWithCenter(CGPointMake(ovalRect.midX, ovalRect.midY), radius: ovalRect.width / 2, startAngle: 0 * CGFloat(M_PI)/180, endAngle: -wedgeAngle * CGFloat(M_PI)/180, clockwise: true)
-        ovalPath.addLineToPoint(CGPointMake(ovalRect.midX, ovalRect.midY))
-        ovalPath.closePath()
+        ovalPath.addArc(withCenter: CGPoint(x: ovalRect.midX, y: ovalRect.midY), radius: ovalRect.width / 2, startAngle: 0 * CGFloat(M_PI)/180, endAngle: -wedgeAngle * CGFloat(M_PI)/180, clockwise: true)
+        ovalPath.addLine(to: CGPoint(x: ovalRect.midX, y: ovalRect.midY))
+        ovalPath.close()
 
         backgroundColor.setFill()
         ovalPath.fill()
@@ -276,6 +278,6 @@ public class LKPullToLoadMore {
         // Drawing complete, retrieve the finished image and cleanup
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage
+        return newImage!
     }
 }
