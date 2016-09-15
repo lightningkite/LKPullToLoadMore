@@ -1,6 +1,11 @@
 machine:
   xcode:
     version: "8.0"
+
+dependencies:
+  pre:
+    - cd Example && pod install
+
 test:
   override:
     - set -o pipefail &&

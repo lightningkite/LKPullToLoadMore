@@ -1,6 +1,0 @@
-framework module LKPullToLoadMore {
-  umbrella header "Pods-Example-LKPullToLoadMore-umbrella.h"
-
-  export *
-  module * { export * }
-}
