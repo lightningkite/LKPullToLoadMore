@@ -251,11 +251,11 @@ public class LKPullToLoadMore: NSObject {
 
         //// Rectangle Drawing
         let rectanglePath = UIBezierPath(roundedRect: CGRectMake(0, 0, height, height), cornerRadius: height / 2)
-        CGContextSaveGState(context)
+        CGContextSaveGState(context!)
         rectanglePath.addClip()
-        CGContextScaleCTM(context, 1, -1)
-        CGContextDrawTiledImage(context, CGRectMake(0, 0, height, height), image.CGImage)
-        CGContextRestoreGState(context)
+        CGContextScaleCTM(context!, 1, -1)
+        CGContextDrawTiledImage(context!, CGRectMake(0, 0, height, height), image.CGImage!)
+        CGContextRestoreGState(context!)
 
 
         //// Oval Drawing
@@ -271,6 +271,6 @@ public class LKPullToLoadMore: NSObject {
         // Drawing complete, retrieve the finished image and cleanup
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return newImage
+        return newImage!
     }
 }
